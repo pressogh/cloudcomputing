@@ -84,27 +84,75 @@
                 </div>
             </div>
 
-            <div class="main-item-container" style="margin-bottom: 40px;">
-                <div class="main-title">클라우드 컴퓨팅 서비스</div>
-            </div>
-        </div>
-
-        <div class="main-card-container">
-        {% for item in posts %}
-            <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">
-                <div class="main-card">
-                    <div class="main-card-image">
-                        <img src="{% static item.thumbnail %}" style="border-radius: 40px;" width="120" height="120" />
-                    </div>
-                    <div class="main-card-content">
-                        <div class="main-card-title" style="color: {{ item.color }}">{{ item.title }}</div>
-                        <div class="main-card-desc">
-                            {{ item.desc | linebreaksbr }}
+            <div class="main-item-container">
+                <div class="main-title" style="margin-bottom: 40px;">클라우드 컴퓨팅 서비스</div>
+                <div class="main-card-container">
+                {% for item in posts %}
+                    <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">
+                        <div class="main-card">
+                            <div class="main-card-image">
+                                <img src="{% static item.thumbnail %}" style="border-radius: 40px;" width="120" height="120" />
+                            </div>
+                            <div class="main-card-content">
+                                <div class="main-card-title" style="color: {{ item.color }}">{{ item.title }}</div>
+                                <div class="main-card-desc">
+                                    {{ item.desc | linebreaksbr }}
+                                </div>
+                            </div>
                         </div>
+                    </a>
+                {% endfor %}
+                </div>
+            </div>
+
+            <div class="main-item-container">
+                <div class="main-title" style="margin-bottom: 40px;">클라우드 컴퓨팅 동향</div>
+                <div class="main-desc" style="display: flex; flex-direction: column;">
+                    <div>
+                        최근 코로나19로 인하여 원격근무, 비대면 고객서비스, 동영상서비스(OTT), 온라인 강의 등 다양한 언택트 서비스들이 확장되면서 <br />클라우드 컴퓨팅의 성장이 가속화되고 있습니다.
+                    </div>
+                    <canvas id="chart" style="width: 820px; height: 400px; align-self: center; margin-top: 60px; margin-bottom: 60px;"></canvas>
+                    <div>
+                        도커와 쿠버네티스의 등장으로 컨테이너 기반의 가상화 기술이 확산되면서, 클라우드 컴퓨팅의 성장이 가속화되고 있습니다.
                     </div>
                 </div>
-            </a>
-        {% endfor %}
+            </div>
         </div>
     </div>
+
+    <script>
+        const ctx = document.getElementById('chart');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2019년', '2020년', '2021년', '2022년'],
+                datasets: [
+                    {
+                        label: 'IaaS',
+                        data: [445, 504, 643, 810],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'PaaS',
+                        data: [375, 435, 573, 720],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'SaaS',
+                        data: [1021, 1047, 1210, 1406],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 {% endblock %}
