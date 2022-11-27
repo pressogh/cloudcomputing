@@ -7,9 +7,18 @@
     margin-bottom: 100px;
 }
 
-.main-card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+@media only screen and (min-width: 481px) and (max-width: 1440px) {
+    .main-card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1441px) {
+    .main-card-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 .main-card {
