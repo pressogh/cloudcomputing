@@ -1,7 +1,15 @@
 .main-container {
+    padding: 0 4% 0 4%;
+}
+
+.main-item-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.main-card-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 4% 0 4%;
 }
 
 .main-card {
@@ -9,9 +17,9 @@
     flex-direction: column;
     width: 260px;
     border: 1px solid #E5E5E5;
-    border-radius: 40px;
+    border-radius: 8%;
     padding: 20px;
-    margin-top: 40px;
+    margin-bottom: 40px;
     transition: all 0.1s ease-in-out;
 }
 
@@ -24,6 +32,8 @@
 .main-card-image {
     display: flex;
     align-self: center;
+    justify-content: center;
+    align-items: center;
     width: 150px;
     height: 150px;
     overflow: hidden;
@@ -41,6 +51,7 @@
     color: #002870;
     margin-bottom: 16px;
     margin-top: 16px;
+    text-align: center;
 }
 
 .main-card-desc {
@@ -48,4 +59,19 @@
     font-weight: 400;
     margin-bottom: 12px;
     text-align: center;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #252525;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.main-desc {
+    font-size: 24px;
+    font-weight: 250;
+    margin-bottom: 12px;
+    line-height: 1.5;
 }
